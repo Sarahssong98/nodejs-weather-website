@@ -7,6 +7,7 @@ const express = require('express')
 const hbs = require('hbs')
 
 const app = express()
+const port = process.env.PORT || 3000
 
 //path.join:__dirname+../public
 const publicDir=path.join(__dirname,'../public')
@@ -99,6 +100,6 @@ app.get('*',(req,res)=>{
     })
 })
 //setting up a webserver
-app.listen(3000, ()=>{
-    console.log('Server is up on port!');
+app.listen(port, ()=>{
+    console.log('Server is up on port '+port);
 })

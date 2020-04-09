@@ -11,8 +11,8 @@ weatherForm.addEventListener('submit',(e)=>{
     e.preventDefault()
     const location = search.value
     mess1.textContent='Loading...'
-    mess2.textContent=''
-    fetch('http://localhost:3000/weather?address='+location).then((response)=>{
+    mess2.textContent='';
+    fetch('/weather?address='+location).then((response)=>{
     response.json().then((data)=>{
         if(data.error){
             //paragraph 의 내용을 manipulate 가능
