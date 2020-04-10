@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>News</title>
+    <link rel="icon" href="/img/weather.png">
+    <link rel="stylesheet" href="/css/styles.css">
+  
+</head>
+
+<body>
+    <div class="main-content">
+        {{>header}}
+
+        <p>Use this site to get recent News!</p>
+        <button id="us" class="country">United States <span class="arrow">❯</span></button>
+        <button id="kr" class="country" >South Korea <span class="arrow">❯</span></button>
+        <br>
+        <form>
+            <input placeholder="Keyword">
+            <button>Search</button>
+
+        </form>
+        <h2 id="title"></h2>
+        <h3 id="err"></h3>
+        <p id="news1"></p>
+        <a id="link1" href= ></a>
+        <br>
+        <h3 id="err2"></h3>
+        <p id="news2"></p>
+        <a id="link2"></a>
+    </div>
+
+    {{>footer}}
+  <script src="/js/news.js"></script>
+</body>
+
+</html>

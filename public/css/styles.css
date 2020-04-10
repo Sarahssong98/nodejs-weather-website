@@ -52,3 +52,72 @@ button {
     color: white;
     padding: 8px;
 }
+.country {
+    display: inline-block;
+    background: #e2e2e2;
+    border: 0;
+    line-height: 2.5em;
+    padding: 0 0 0 1em;
+    margin-bottom: 1em;
+    outline: none;
+    text-decoration: none;
+    color: #666;
+    padding:10px
+  }
+  .country .arrow {
+    display: inline-block;
+    line-height: 2.5em;
+    text-align: center;
+    background: #333;
+    color: white;
+    font-size: 1em;
+    width: 2.5em;
+    -webkit-transition: margin 200ms;
+    transition: margin 200ms;
+    margin-left: .75em;
+  }
+
+ @import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+
+a,a:visited,a:hover,a:active{
+  -webkit-backface-visibility:hidden;
+          backface-visibility:hidden;
+	position:relative;
+  transition:0.5s color ease;
+	text-decoration:none;
+	color:gray;
+	font-size:20px;
+}
+a:hover{
+	color:green;
+}
+a.before:before,a.after:after{
+  content: "";
+  transition:0.5s all ease;
+  -webkit-backface-visibility:hidden;
+          backface-visibility:hidden;
+  position:absolute;
+}
+a.before:before{
+  top:-0.25em;
+}
+a.after:after{
+  bottom:-0.25em;
+}
+a.before:before,a.after:after{
+  height:5px;
+  height:0.35rem;
+  width:0;
+  background:green
+}
+
+a.third:after{
+  left:50%;
+  -webkit-transform:translateX(-50%);
+          transform:translateX(-50%);
+}
+
+a.before:hover:before,a.after:hover:after{
+  width:100%;
+}

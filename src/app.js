@@ -1,7 +1,8 @@
 const request= require('request');
 const geocode=require('./utils/geocode.js');
 const forecast=require('./utils/forecast.js');
-
+const countryNews=require('./utils/c_news.js');
+const keywordNews=require('./utils/k_news.js')
 const path=require('path')
 const express = require('express')
 const hbs = require('hbs')
@@ -24,8 +25,8 @@ hbs.registerPartials(partialPath)
 app.use(express.static(publicDir))
 //app.com : domain
 app.get('',(req,res)=>{
-    res.render('index',{
-        title:'Weather',
+    res.render('home',{
+        title:'Home',
         name:'Sarah Song'
     })
 })
@@ -45,7 +46,47 @@ app.get('/about',(req,res)=>{
         name:'Sarah Song'
     })
 })
+app.get('/news',(req,res)=>{
+    res.render('news',{
+        title:'Recent News',
+        name:'Sarah Song'
+    })
+})
+app.get('/news/country',(req,res)=>{
+    const country=req.query.country
+    countryNews(country,(error,ndata)=>{
+        if(error){
+            return res.send({error})
+        }
+        res.send({
+            country:country,
+           news:ndata.news,
+           news2:ndata.news2
+        })
+    })
+  
+})
+app.get('/news/search',(req,res)=>{
+    const keyword=req.query.keyword
+    keywordNews(keyword,(error,ndata)=>{
+        if(error){
+            return res.send({error})
+        }
+        res.send({
+           keyword,
+           news:ndata.news,
+           news2:ndata.news2
+        })
+    })
+    
+})
 app.get('/weather',(req,res)=>{
+    res.render('index',{
+        title:'Weather',
+        name:'Sarah Song'
+    })
+})
+app.get('/weather/search',(req,res)=>{
     const address=req.query.address
     if(!address){
         return res.send({
