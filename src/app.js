@@ -3,6 +3,7 @@ const geocode=require('./utils/geocode.js');
 const forecast=require('./utils/forecast.js');
 const countryNews=require('./utils/c_news.js');
 const keywordNews=require('./utils/k_news.js')
+const airNews=require('./utils/air.js')
 const path=require('path')
 const express = require('express')
 const hbs = require('hbs')
@@ -85,6 +86,18 @@ app.get('/weather',(req,res)=>{
         title:'Weather',
         name:'Sarah Song'
     })
+})
+app.get('/weather/air',(req,res)=>{
+    airNews((error,data)=>{
+        if(error){
+            return res.send({error})
+        }
+        res.send({
+            air1:data.air,
+            air2:data.air2
+        })
+    })
+    
 })
 app.get('/weather/search',(req,res)=>{
     const address=req.query.address

@@ -5,7 +5,7 @@
 <head>
     <title>Weather</title>
     <link rel="icon" href="/img/weather.png">
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/weather.css">
   
 </head>
 
@@ -14,13 +14,19 @@
         {{>header}}
 
         <p>Use this site to get your weather!</p>
+        <button id="us" class="country">Arizona <span class="arrow">❯</span></button>
+        <button id="kr" class="country" >Seoul<span class="arrow">❯</span></button>
         <form>
             <input placeholder="Location">
             <button>Search</button>
 
         </form>
-        <p id="err"></p>
-        <p id="weather"></p>
+        <h2 id="title"></h2>
+        <h3 id="err"></h3>
+        <p id="news1"></p>
+        <h3 id="err2"></h3>
+        <p id="news2"></p>
+        <p id="link2"></a>
     </div>
 
     {{>footer}}
